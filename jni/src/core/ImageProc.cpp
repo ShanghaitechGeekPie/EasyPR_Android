@@ -95,8 +95,8 @@ JNIEXPORT jbyteArray JNICALL Java_com_example_carplate_CarPlateDetection_ImagePr
 	string str = "0";
 
 	if (count == 0) {
-		str="NONE";
-		//str = plateVec[0];
+		//str="NONE";
+		str = plateVec[0];
 	}
 
 	char *result = new char[str.length() + 1];
