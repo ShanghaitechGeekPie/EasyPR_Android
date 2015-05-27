@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="sss"
+        android:text="Waiting for devices"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/demoTitle"
         android:layout_centerHorizontal="true"
-        android:text="asdasd"
+        android:text="Waiting"
         android:padding="8dp"
         android:textSize="18sp" />
     

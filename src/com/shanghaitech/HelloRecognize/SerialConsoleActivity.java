@@ -27,17 +27,18 @@ import android.content.Intent;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
+import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.hoho.android.usbserial.driver.UsbSerialPort;
-import com.hoho.android.usbserial.examples.R;
-import com.hoho.android.usbserial.examples.R.id;
-import com.hoho.android.usbserial.examples.R.layout;
 import com.hoho.android.usbserial.util.HexDump;
 import com.hoho.android.usbserial.util.SerialInputOutputManager;
 
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -65,8 +66,15 @@ public class SerialConsoleActivity extends Activity {
     private static UsbSerialPort sPort = null;
 
     private TextView mTitleTextView;
+    private TextView mTitleTextStatusView;
     private TextView mDumpTextView;
     private ScrollView mScrollView;
+    private ProgressBar mProgressBar;
+    private String Dumptext="";
+    private FileWriter fw;
+    private int num=0;
+    private int datacount=0;
+    private boolean first_loop=true;
 
     private final ExecutorService mExecutor = Executors.newSingleThreadExecutor();
 
@@ -96,9 +104,24 @@ public class SerialConsoleActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.serial_console);
         mTitleTextView = (TextView) findViewById(R.id.demoTitle);
+        mTitleTextStatusView = (TextView) findViewById(R.id.textView_status);
         mDumpTextView = (TextView) findViewById(R.id.consoleText);
         mScrollView = (ScrollView) findViewById(R.id.demoScroller);
+        mProgressBar = (ProgressBar) findViewById(R.id.progressBar1);
+        mProgressBar.setProgress(0);
+        mTitleTextStatusView.setText("Ready....");
+        num=0;
+        datacount=0;
+        first_loop=true;
+        try {
+            fw = new FileWriter(Environment.getExternalStorageDirectory().getAbsolutePath()+"/input.data");
+            fw.write("");  
+            fw.close();  
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 
     @Override
     protected void onPause() {
@@ -145,8 +168,20 @@ public class SerialConsoleActivity extends Activity {
                 return;
             }
             mTitleTextView.setText("Serial device: " + sPort.getClass().getSimpleName());
+            mTitleTextStatusView.setText("Waiting for data....");
         }
         onDeviceStateChange();
+    }
+
+    private void savetofile() {
+        mTitleTextStatusView.setText("Saving data....");
+    //    mDumpTextView.getText();
+        try {
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mTitleTextStatusView.setText("Saving Finished");
     }
 
     private void stopIoManager() {
@@ -171,10 +206,39 @@ public class SerialConsoleActivity extends Activity {
     }
 
     private void updateReceivedData(byte[] data) {
-        final String message = "Read " + data.length + " bytes: \n"
+    	//Dumptext
+        try {
+            fw = new FileWriter(Environment.getExternalStorageDirectory().getAbsolutePath()+"/input.data",true);
+	        for (int i = 0; i < data.length; i++) {
+	        	num++;
+	        	int bordervalue=first_loop?7874:7860;
+	        	if (num<=bordervalue){
+		        	int v = data[i] & 0xFF;  
+		        	Dumptext=Integer.toHexString(v);
+		        	Dumptext+=" ";
+			        fw.write(Integer.toHexString(v));
+			        fw.write(" ");
+		        	datacount++;
+		            mProgressBar.setProgress((int)datacount*100/614400);
+	        	}else if (num==7874+62){
+	        		num=0;
+	        		first_loop=false;
+	        	}
+	        }
+	        //fw.write("FINISH\n ");
+	        
+	        fw.close();  
+	    } catch (IOException e) {
+        	num--;
+	        e.printStackTrace();
+	    }
+
+        final String message = "Read " + data.length + " bytes.\n"
+        		+ "All Receive Data: " + datacount + " out of 614400. \n"
                 + HexDump.dumpHexString(data) + "\n\n";
-        mDumpTextView.append(message);
-        mScrollView.smoothScrollTo(0, mDumpTextView.getBottom());
+        mDumpTextView.setText(message);
+      //  mDumpTextView.append(Dumptext);
+       // mScrollView.smoothScrollTo(0, mDumpTextView.getBottom());
     }
 
     /**

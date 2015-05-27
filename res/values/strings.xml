@@ -2,7 +2,10 @@
 <resources>
 
     <string name="app_name">Hello Recognize</string>
+    <string name="app_title">USB Serial Example</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
 	<string name="str_proc">Hello Recognize - Car Plate Detection and Recognition</string> 
+    <string name="refreshing">Refreshing...</string>
+    
 </resources>

@@ -5,20 +5,6 @@
     android:orientation="vertical"
     tools:context=".MainActivity" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Status:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/myshow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ready...."
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,8 +17,21 @@
             android:contentDescription="@string/str_proc"
             android:scaleType="fitCenter"
             android:src="@drawable/plate_locate" />
-
     </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/myshow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ready...."
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
         android:id="@+id/editText1"

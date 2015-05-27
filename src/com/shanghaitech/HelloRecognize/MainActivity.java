@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.hardware.usb.UsbDeviceConnection;
@@ -68,8 +69,10 @@ public class MainActivity extends Activity {
 	};
 
 	public void Uartclick(View view) {
-
-		DeviceListActivity.show(this);
+		startActivity(new Intent(MainActivity.this, DeviceListActivity.class));
+//        final Intent intent = new Intent(MainActivity.this, DeviceListActivity.class);
+//        //intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
+//        MainActivity.this.startActivity(intent);
 //		m_text.setText("a");
 //		// Find all available drivers from attached devices.
 //		UsbManager manager = (UsbManager) getSystemService(Context.USB_SERVICE);

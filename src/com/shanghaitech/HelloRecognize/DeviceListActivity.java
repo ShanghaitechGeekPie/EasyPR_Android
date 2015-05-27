@@ -45,10 +45,6 @@ import android.widget.TwoLineListItem;
 import com.hoho.android.usbserial.driver.UsbSerialDriver;
 import com.hoho.android.usbserial.driver.UsbSerialPort;
 import com.hoho.android.usbserial.driver.UsbSerialProber;
-import com.hoho.android.usbserial.examples.R;
-import com.hoho.android.usbserial.examples.R.id;
-import com.hoho.android.usbserial.examples.R.layout;
-import com.hoho.android.usbserial.examples.R.string;
 import com.hoho.android.usbserial.util.HexDump;
 
 import java.util.ArrayList;
@@ -206,12 +202,6 @@ public class DeviceListActivity extends Activity {
 
     private void showConsoleActivity(UsbSerialPort port) {
         SerialConsoleActivity.show(this, port);
-    }
-    
-    public static void show(Context context) {
-        final Intent intent = new Intent(context, SerialConsoleActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
-        context.startActivity(intent);
     }
 
 }

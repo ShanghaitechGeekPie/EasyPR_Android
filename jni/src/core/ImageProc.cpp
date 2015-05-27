@@ -152,9 +152,16 @@ JNIEXPORT jbyteArray JNICALL Java_com_shanghaitech_HelloRecognize_CarPlateDetect
 
 	string str = "0";
 
-	if (count == 0) {
-		//str="NONE";
-		str = plateVec[0];
+  try
+	{
+		if (count == 0) {
+			//str="NONE";
+			str = plateVec[0];
+		}
+	}
+	catch(string &e)
+	{
+		str="NONE";
 	}
 
 	char *result = new char[str.length() + 1];
