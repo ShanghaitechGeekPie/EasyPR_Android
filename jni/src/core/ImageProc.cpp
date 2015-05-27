@@ -1,4 +1,4 @@
-#include<com_example_carplate_CarPlateDetection.h>
+#include<com_shanghaitech_HelloRecognize_CarPlateDetection.h>
 #include "plate_locate.h"
 #include "plate_judge.h"
 #include "chars_segment.h"
@@ -13,6 +13,10 @@ using namespace easypr;
 #define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
 #define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
 #define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
+
+extern const bool	OPTION_HEX = false;
+extern const bool	OPTION_DEBUG = true;
+extern const int	OPTION_LIFEMODE = false;
 
 char* jstring2str(JNIEnv* env, jstring jstr) {
 	char* rtn = NULL;
@@ -32,10 +36,55 @@ char* jstring2str(JNIEnv* env, jstring jstr) {
 	return rtn;
 }
 
-JNIEXPORT jbyteArray JNICALL Java_com_example_carplate_CarPlateDetection_ImageProc(
+JNIEXPORT jbyte JNICALL Java_com_shanghaitech_HelloRecognize_CarPlateDetection_ImageProcRead(
+		JNIEnv *env, jclass obj, jstring datapath, jstring imgpath) {
+//	const string *img = (*env)->GetStringUTFChars(env, imgpath, 0);
+//	const string *svm = (*env)->GetStringUTFChars(env, svmpath, 0);
+//	const string *ann = (*env)->GetStringUTFChars(env, annpath, 0);
+	char* data = jstring2str(env,datapath);
+	char* img = jstring2str(env,imgpath);
+	// #############################################################
+	// Mat src = imread(img);
+	Mat src;
+	src.create(480,640, CV_8UC3);
+
+	FILE *in;
+	in=fopen(data,"r");
+
+	int i,j,y=0,u=0,v=0;
+	char t,handle=1;
+	double R,G,B;
+	for (j=0;j<480;j++){
+		for (i=0;i<640;i++){
+			fscanf(in,"%X",&y);
+			if (handle){
+				fscanf(in,"%X",&u);
+				handle=0;
+			}else{
+				fscanf(in,"%X",&v);
+				handle=1;
+			}
+
+			R=(y+1.4075*(v-128));
+			G=(y-0.455*(u-128)-0.7169*(v-128));
+			B=(y+1.779*(u-128));
+
+			src.at<Vec3b>(j,i)[0] = (unsigned char)(B<0)?0:(B>255)?255:(unsigned char)B;
+			src.at<Vec3b>(j,i)[1] = (unsigned char)(G<0)?0:(G>255)?255:(unsigned char)G;
+			src.at<Vec3b>(j,i)[2] = (unsigned char)(R<0)?0:(R>255)?255:(unsigned char)R;
+		}
+	}
+	fclose(in);
+
+	imwrite( img, src );
+
+	jbyte jarray = 0;
+	return jarray;
+}
+
+JNIEXPORT jbyteArray JNICALL Java_com_shanghaitech_HelloRecognize_CarPlateDetection_ImageProc(
 		JNIEnv *env, jclass obj, jstring imgpath, jstring svmpath,
 		jstring annpath) {
-	CPlateRecognize pr;
 //	const string *img = (*env)->GetStringUTFChars(env, imgpath, 0);
 //	const string *svm = (*env)->GetStringUTFChars(env, svmpath, 0);
 //	const string *ann = (*env)->GetStringUTFChars(env, annpath, 0);
@@ -77,21 +126,30 @@ JNIEXPORT jbyteArray JNICALL Java_com_example_carplate_CarPlateDetection_ImagePr
 	fclose(in);
 
 	// #############################################################
-	pr.LoadSVM(svm);
-	pr.LoadANN(ann);
 
-	pr.setGaussianBlurSize(5);
-	pr.setMorphSizeWidth(17);
+	CPlateRecognize plate;
+	plate.LoadSVM(svm);
+	plate.LoadANN(ann);
+	//plate.setDebug(OPTION_DEBUG);
+	plate.setLifemode(OPTION_LIFEMODE);
 
-	pr.setVerifyMin(3);
-	pr.setVerifyMax(20);
+	vector<string> plateVec;
 
-	pr.setLiuDingSize(7);
-	pr.setColorThreshold(150);
+	int count = plate.plateRecognize(src, plateVec);
+//	if (result == 0)
+//	{
+//		int num = plateVec.size();
+//		for (int j = 0; j < num; j++)
+//		{
+//			cout << "plateRecognize[" << j << "]： "<< plateVec[j] << endl;
+//		}
+//	}
+//
+//	if (result != 0)
+//		cout << "result:" << result << endl;
+//
+//	return result;
 
-	vector < string > plateVec;
-
-	int count = pr.plateRecognize(src, plateVec);
 	string str = "0";
 
 	if (count == 0) {

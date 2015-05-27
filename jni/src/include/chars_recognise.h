@@ -18,56 +18,70 @@
 #include "chars_identify.h"
 
 /*! \namespace easypr
-    Namespace where all the C++ EasyPR functionality resides
+Namespace where all the C++ EasyPR functionality resides
 */
 namespace easypr {
 
-class CCharsRecognise 
-{
-public:
-	CCharsRecognise();
+class CCharsRecognise {
+ public:
+  CCharsRecognise();
 
-	//! ×Ö·û·Ö¸îÓëÊ¶±ğ
-	int charsRecognise(Mat, String&);
+  ~CCharsRecognise();
 
-	//! ×°ÔØANNÄ£ĞÍ
-	void LoadANN(string s);
+  //! å­—ç¬¦åˆ†å‰²ä¸è¯†åˆ«
+  int charsRecognise(Mat, String&);
 
-	//! ÊÇ·ñ¿ªÆôµ÷ÊÔÄ£Ê½
-	inline void setCRDebug(int param){ m_charsSegment->setDebug(param);}
+  //! è£…è½½ANNæ¨¡å‹
+  void LoadANN(string s);
 
-	//! »ñÈ¡µ÷ÊÔÄ£Ê½×´Ì¬
-	inline int getCRDebug(){ return m_charsSegment->getDebug();}
+  //! æ˜¯å¦å¼€å¯è°ƒè¯•æ¨¡å¼
+  inline void setCRDebug(int param) { m_charsSegment->setDebug(param); }
 
+  //! è·å–è°ƒè¯•æ¨¡å¼çŠ¶æ€
+  inline int getCRDebug() { return m_charsSegment->getDebug(); }
 
-	//! »ñµÃ³µÅÆÑÕÉ«
-	inline string getPlateType(Mat input) const
-	{
-		string color = "Î´Öª";
-		int result = m_charsSegment->getPlateType(input);
-		if (1 == result)
-			color = "À¶ÅÆ";
-		if (2 == result)
-			color = "»ÆÅÆ";
-		return color;
-	}
+  //! è·å¾—è½¦ç‰Œé¢œè‰²
+  inline string getPlateColor(Mat input) const {
+    string color = "æœªçŸ¥";
+    Color result = getPlateType(input, true);
+    if (BLUE == result) color = "è“ç‰Œ";
+    if (YELLOW == result) color = "é»„ç‰Œ";
+    return color;
+  }
 
-	//! ÉèÖÃ±äÁ¿
-	inline void setLiuDingSize(int param){ m_charsSegment->setLiuDingSize(param);}
-	inline void setColorThreshold(int param){ m_charsSegment->setColorThreshold(param);}
-	inline void setBluePercent(float param){ m_charsSegment->setBluePercent(param);}
-	inline float getBluePercent() const { return m_charsSegment->getBluePercent();}
-	inline void setWhitePercent(float param){ m_charsSegment->setWhitePercent(param);}
-	inline float getWhitePercent() const { return m_charsSegment->getWhitePercent();}
+  //! è®¾ç½®å˜é‡
+  inline void setLiuDingSize(int param) {
+    m_charsSegment->setLiuDingSize(param);
+  }
 
-private:
-	//£¡×Ö·û·Ö¸î
-	CCharsSegment* m_charsSegment;
+  inline void setColorThreshold(int param) {
+    m_charsSegment->setColorThreshold(param);
+  }
 
-	//! ×Ö·ûÊ¶±ğ
-	CCharsIdentify* m_charsIdentify;
+  inline void setBluePercent(float param) {
+    m_charsSegment->setBluePercent(param);
+  }
+
+  inline float getBluePercent() const {
+    return m_charsSegment->getBluePercent();
+  }
+
+  inline void setWhitePercent(float param) {
+    m_charsSegment->setWhitePercent(param);
+  }
+
+  inline float getWhitePercent() const {
+    return m_charsSegment->getWhitePercent();
+  }
+
+ private:
+  //ï¼å­—ç¬¦åˆ†å‰²
+  CCharsSegment* m_charsSegment;
+
+  //! å­—ç¬¦è¯†åˆ«
+  CCharsIdentify* m_charsIdentify;
 };
 
-}	/* \namespace easypr  */
+} /* \namespace easypr  */
 
 #endif /* endif __CHARS_RECOGNISE_H__ */

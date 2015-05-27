@@ -1,244 +1,190 @@
 #include "include/plate_recognize.h"
 #include "include/util.h"
-#include "include/features.h"
+#include "include/feature.h"
+#include "include/CParser.h"
 
 using namespace easypr;
 
-int svmMain();
-int acurayTestMain();
+//æ ‡å‡†è¯»å…¥åœ°å€
+extern const string NATIVE_RECG_PATH = "RECG";
 
-namespace easypr {
+//æ ‡å‡†è¯»å…¥åœ°å€
+extern const bool	OPTION_HEX = false;
+extern const bool	OPTION_DEBUG = true;
+extern const int	OPTION_LIFEMODE = false;
 
-	int svmTrain(bool dividePrepared = true, bool trainPrepared = true,
-	svmCallback getFeatures = getHistogramFeatures);
+int show_dialog(Mat src);
+int plate_locatte_main(vector<Mat>& resultDT);
+int plate_judge_main(vector<Mat>& src, vector<Mat>& resultDT);
+int plate_detect_main(vector<Mat>& resultDT);
+int plate_recognize_main();
 
+// "--test_plate_locate    [ -tpl ]    è½¦ç‰Œå®šä½                ",
+// "--test_plate_judge     [ -tpj ]    è½¦ç‰Œåˆ¤æ–­                ",
+// "--test_plate_detect    [ -tpd ]    è½¦ç‰Œæ£€æµ‹                ",
+// "--test_chars_segment   [ -tcs ]    å­—ç¬¦åˆ†éš”                ",
+// "--test_chars_identify  [ -tci ]    å­—ç¬¦é‰´åˆ«                ",
+// "--test_chars_recognize [ -tcr ]    å­—ç¬¦è¯†åˆ«                ",
+// "--test_plate_recognize [ -tpr ]    è½¦ç‰Œè¯†åˆ«                ",
+// "--test_all             [ -ta  ]    æµ‹è¯•å…¨éƒ¨                ",
+// "--general_test         [ -gt  ]    æ‰¹é‡æµ‹è¯•-general_test   ",
+// "--native_test   
+
+int main(){
+	vector<Mat> DT;
+	int result;
+	result = plate_recognize_main();
+	//result = plate_judge_main(DT, DT);
 }
 
-extern const string GENERAL_TEST_PATH = "image/general_test";
-extern const string NATIVE_TEST_PATH = "image/native_test";
+int show_dialog(Mat src){
+	imshow("RECG_show", src);
+	waitKey(0);
+    destroyWindow("plate_locate");
+}
 
-////////////////////////////////////////////////////////////
-// EasyPR ÑµÁ·ÃüÁîĞĞ
+int plate_locatte_main(vector<Mat>& resultDT){
+	cout << "process plat_locatte_main...";
 
-const string option[] = 
+	Mat src = imread(NATIVE_RECG_PATH+"/test.jpg");
+
+	CPlateLocate plate;
+	plate.setDebug(OPTION_DEBUG);
+	plate.setLifemode(OPTION_LIFEMODE);
+
+	int result = plate.plateLocate(src, resultDT);
+	if (result == 0)
 	{
-		"1. ²âÊÔ;"	,
-		"2. ÅúÁ¿²âÊÔ;"		,
-		"3. SVMÑµÁ·;"		,
-		"4. ANNÑµÁ·(Î´¿ª·Å);"		,
-		"5. GDTSÉú³É;"		,
-		"6. ¿ª·¢ÍÅ¶Ó;"		,
-		"7. ¸ĞĞ»Ãûµ¥;"		,
-		"8. ÍË³ö;"			,  
-	};
-
-const int optionCount = 8;
-
-int main()
-{
-	bool isExit = false;
-	while (isExit != true)
-	{
-		stringstream selectOption(stringstream::in | stringstream::out);
-		selectOption << "EasyPR Option:"<< endl;
-		for(int i = 0; i < optionCount; i++)
+		int num = resultDT.size();
+		for (int j = 0; j < num; j++)
 		{
-			selectOption << option[i] << endl;
+			Mat resultMat = resultDT[j];
+			show_dialog(resultMat);
 		}
+		cout << "OK";
+	}
 
-		cout << "////////////////////////////////////"<< endl;
-		cout << selectOption.str();
-		cout << "////////////////////////////////////"<< endl;
-		cout << "ÇëÑ¡ÔñÒ»Ïî²Ù×÷:";
+	cout << endl;
+	return result;
+}
 
-		int select = -1;
-		bool isRepeat = true;
-		while (isRepeat)
+int plate_judge_main(vector<Mat>& src, vector<Mat>& resultDT){
+	cout << "process plate_judge_main...";
+
+	vector<Mat> resultVec;
+
+	CPlateJudge plate;
+	int resultJu = plate.plateJudge(src, resultVec);
+
+	if (resultJu == 0)
+	{
+		int num = resultVec.size();
+		for (int j = 0; j < num; j++)
 		{
-			cin >> select;
-			isRepeat = false;
-			switch (select)
-			{
-			case 1:
-				testMain();
-				break;
-			case 2:
-				acurayTestMain();
-				break;
-			case 3:
-				svmMain();
-				break;
-			case 4:
-				// TODO
-				break;
-			case 5:
-				generate_gdts();
-				break;
-			case 6:
-				// ¿ª·¢ÍÅ¶Ó;
-				cout << endl;
-				cout << "ÎÒÃÇEasyPRÍÅ¶ÓÄ¿Ç°ÓĞÒ»¸ö5ÈË×óÓÒµÄĞ¡×éÔÚ½øĞĞEasyPRºóĞø°æ±¾µÄ¿ª·¢¹¤×÷¡£" << endl;
-				cout << "Èç¹ûÄã¶Ô±¾ÏîÄ¿¸ĞĞËÈ¤£¬²¢ÇÒÔ¸ÒâÎª¿ªÔ´¹±Ï×Ò»·İÁ¦Á¿£¬ÎÒÃÇºÜ»¶Ó­ÄãµÄ¼ÓÈë¡£" << endl;
-				cout << "Ä¿Ç°ÕĞÆ¸µÄÖ÷ÒªÈË²ÅÊÇ£º³µÅÆ¶¨Î»£¬Í¼ÏñÊ¶±ğ£¬Éî¶ÈÑ§Ï°£¬ÍøÕ¾½¨ÉèÏà¹Ø·½ÃæµÄÅ£ÈË¡£" << endl;
-				cout << "Èç¹ûÄã¾õµÃ×Ô¼º·ûºÏÌõ¼ş£¬Çë·¢ÓÊ¼şµ½µØÖ·(easypr_dev@163.com)£¬ÆÚ´ıÄãµÄ¼ÓÈë£¡" << endl;
-				cout << endl;
-				break;
-			case 7:
-				// ¸ĞĞ»Ãûµ¥
-				cout << endl;
-				cout << "±¾ÏîÄ¿ÔÚ½¨Éè¹ı³ÌÖĞ£¬ÊÜµ½ÁËºÜ¶àÈËµÄ°ïÖú£¬ÆäÖĞÒÔÏÂÊÇ¶Ô±¾ÏîÄ¿×ö³öÍ»³ö¹±Ï×µÄ" << endl;
-				cout << "(¹±Ï×°üÀ¨ÓĞÒæ½¨Òé£¬´úÂëµ÷ÓÅ£¬Êı¾İÌá¹©µÈµÈ,ÅÅÃû°´Ê±¼äË³Ğò)£º" << endl;
-				cout << "taotao1233, ÌÆ´óÏÀ£¬jsxyhelu£¬Èç¹ûÓĞÒ»Ìì£¬Ñ§Ï°·Ü¶·£¬Ô¬³ĞÖ¾£¬Ê¥³ÇĞ¡Ê¯½³£¬" << endl;
-				cout << "»¹ÓĞºÜ¶àµÄÍ¬Ñ§¶Ô±¾ÏîÄ¿Ò²¸øÓèÁË¹ÄÀøÓëÖ§³Ö£¬ÔÚ´ËÒ²Ò»²¢±íÊ¾Õæ³ÏµÄĞ»Òâ£¡" << endl;
-				cout << endl;
-				break;
-			case 8:
-				isExit = true;
-				break;
-			default:
-				cout << "ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë:";
-				isRepeat = true;
-				break;
+			Mat resultMat = resultVec[j];
+			show_dialog(resultMat);
+		}
+		cout << "OK";
+	}
+
+	cout << endl;
+	return resultJu;
+}
+
+int plate_detect_main(vector<Mat>& resultDT){
+	cout << "process plate_detect_main...";
+
+	Mat src = imread(NATIVE_RECG_PATH+"/test.jpg");
+
+	CPlateDetect plate;
+	plate.setPDDebug(OPTION_DEBUG);
+	plate.setPDLifemode(OPTION_LIFEMODE);
+
+	int result = plate.plateDetectDeep(src, resultDT);
+	if (result == 0)
+	{
+		int num = resultDT.size();
+		for (int j = 0; j < num; j++)
+		{
+			Mat resultMat = resultDT[j];
+			show_dialog(resultMat);
+		}
+		cout << "OK";
+	}
+
+	cout << endl;
+	return result;
+}
+
+int plate_recognize_main(){
+	cout << "process plate_detect_main..." << endl;
+
+	
+	// Mat src = imread(NATIVE_RECG_PATH+"/test.yuv");
+	Mat src; //= imread(NATIVE_RECG_PATH+"/test.yuv");
+	src.create(480,640, CV_8UC3);
+
+	FILE *in;
+	in=fopen("RECG/data.input","r");
+
+	int i,j,y=0,u=0,v=0;
+	char t,handle=1;
+	double R,G,B;
+	char temp;
+	for (j=0;j<480;j++){
+		for (i=0;i<640;i++){
+			if (OPTION_HEX)
+				fscanf(in,"%c%c%X",&temp,&temp,&y);
+			else
+				fscanf(in,"%X",&y);
+			if (handle){
+				if (OPTION_HEX)
+					fscanf(in,"%c%c%X",&temp,&temp,&u);
+				else
+					fscanf(in,"%X",&u);
+				handle=0;
+			}else{
+				if (OPTION_HEX)
+					fscanf(in,"%c%c%X",&temp,&temp,&v);
+				else
+					fscanf(in,"%X",&v);
+				handle=1;
 			}
+			
+			R=(y+1.4075*(v-128));
+			G=(y-0.455*(u-128)-0.7169*(v-128));
+			B=(y+1.779*(u-128));
+
+			src.at<Vec3b>(j,i)[0] = (unsigned char)(B<0)?0:(B>255)?255:(unsigned char)B;
+			src.at<Vec3b>(j,i)[1] = (unsigned char)(G<0)?0:(G>255)?255:(unsigned char)G;
+			src.at<Vec3b>(j,i)[2] = (unsigned char)(R<0)?0:(R>255)?255:(unsigned char)R;
 		}
 	}
-	return 0;
-}
-// /EasyPR ÑµÁ·ÃüÁîĞĞ ½áÊø
-////////////////////////////////////////////////////////////
+	fclose(in);
 
+	// show_dialog(src);
+	// exit;
 
-////////////////////////////////////////////////////////////
-// acurayTestMain ÃüÁîĞĞ 
+	CPlateRecognize plate;
+	plate.LoadANN("model/ann.xml");
+	plate.LoadSVM("model/svm.xml");
+	plate.setDebug(OPTION_DEBUG);
+	plate.setLifemode(OPTION_LIFEMODE);
 
-const string acuray_option[] = 
+	vector<string> plateVec;
+
+	int result = plate.plateRecognize(src, plateVec);
+	if (result == 0)
 	{
-		"1. general_test;"	,
-		"2. native_test;"	,
-		"3. ·µ»Ø;"			,  
-	};
-
-const int acuray_optionCount = 3;
-
-int acurayTestMain()
-{
-	bool isExit = false;
-	while (isExit != true)
-	{
-		stringstream selectOption(stringstream::in | stringstream::out);
-		selectOption << "BatchTest Option:"<< endl;
-		for(int i = 0; i < acuray_optionCount; i++)
+		int num = plateVec.size();
+		for (int j = 0; j < num; j++)
 		{
-			selectOption << acuray_option[i] << endl;
-		}
-
-		cout << "////////////////////////////////////"<< endl;
-		cout << selectOption.str();
-		cout << "////////////////////////////////////"<< endl;
-		cout << "ÇëÑ¡ÔñÒ»Ïî²Ù×÷:";
-
-		int select = -1;
-		bool isRepeat = true;
-		while (isRepeat)
-		{
-			cin >> select;
-			isRepeat = false;
-			switch (select)
-			{
-			case 1:
-				acurayTest(GENERAL_TEST_PATH);
-				break;
-			case 2:
-				acurayTest(NATIVE_TEST_PATH);
-				break;
-			case 3:
-				isExit = true;
-				break;
-			default:
-				cout << "ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë:";
-				isRepeat = true;
-				break;
-			}
+			cout << "plateRecognize[" << j << "]ï¼š "<< plateVec[j] << endl;			
 		}
 	}
-	return 0;
+
+	if (result != 0)
+		cout << "result:" << result << endl;
+
+	return result;
 }
-
-// acurayTestMain ÃüÁîĞĞ 
-////////////////////////////////////////////////////////////
-
-
-////////////////////////////////////////////////////////////
-// SVM ÑµÁ·ÃüÁîĞĞ 
-
-const string svm_option[] = 
-	{
-		"1. Éú³Élearndata(µ÷Õû´úÂëµ½ÄãµÄ»·¾³ºóÔÙÓÃ);"	,
-		"2. ±êÇ©learndata;"		,
-		"3. ³µÅÆ¼ì²â(not divide and train);"		,
-		"4. ³µÅÆ¼ì²â(not train);"		,
-		"5. ³µÅÆ¼ì²â(not divide);"		,
-		"6. ³µÅÆ¼ì²â;"		,
-		"7. ·µ»Ø;"			,  
-	};
-
-const int svm_optionCount = 7;
-
-int svmMain()
-{
-	bool isExit = false;
-	while (isExit != true)
-	{
-		stringstream selectOption(stringstream::in | stringstream::out);
-		selectOption << "SvmTrain Option:"<< endl;
-		for(int i = 0; i < svm_optionCount; i++)
-		{
-			selectOption << svm_option[i] << endl;
-		}
-
-		cout << "////////////////////////////////////"<< endl;
-		cout << selectOption.str();
-		cout << "////////////////////////////////////"<< endl;
-		cout << "ÇëÑ¡ÔñÒ»Ïî²Ù×÷:";
-
-		int select = -1;
-		bool isRepeat = true;
-		while (isRepeat)
-		{
-			cin >> select;
-			isRepeat = false;
-			switch (select)
-			{
-			case 1:
-				getLearnData();
-				break;
-			case 2:
-				label_data();
-				break;
-			case 3:
-				svmTrain(false, false);
-				break;
-			case 4:
-				svmTrain(true, false);
-				break;
-			case 5:
-				svmTrain(false, true);
-				break;
-			case 6:
-				svmTrain();
-				break;
-			case 7:
-				isExit = true;
-				break;
-			default:
-				cout << "ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë:";
-				isRepeat = true;
-				break;
-			}
-		}
-	}
-	return 0;
-}
-
-// SVM ÑµÁ·ÃüÁîĞĞ 
-////////////////////////////////////////////////////////////

@@ -1,58 +1,64 @@
 //////////////////////////////////////////////////////////////////////////
 // Name:	    plate_judge Header
-// Version:		1.0
-// Date:	    2014-09-22
+// Version:		1.1
+// Date:	    2014-09-28
+// MDate:	    2015-01-28
 // Author:	    liuruoze
 // Copyright:   liuruoze
 // Reference:	Mastering OpenCV with Practical Computer Vision Projects
 // Reference:	CSDN Bloger taotao1233
-// Desciption:  
+// Desciption:
 // Defines CPlateLocate
 //////////////////////////////////////////////////////////////////////////
 #ifndef __PLATE_JUDGE_H__
 #define __PLATE_JUDGE_H__
 
 #include "prep.h"
-#include "features.h"
+#include "plate.h"
+#include "feature.h"
+#include "core_func.h"
 
 /*! \namespace easypr
     Namespace where all the C++ EasyPR functionality resides
 */
 namespace easypr {
 
-class CPlateJudge 
+class CPlateJudge
 {
 public:
 	CPlateJudge();
 
-	//! ³µÅÆÅĞ¶Ï
+	//! å¯¹å¤šå¹…è½¦ç‰Œè¿›è¡ŒSVMåˆ¤æ–­
+	int plateJudge(const vector<CPlate>&, vector<CPlate>&);
+
+	//! è½¦ç‰Œåˆ¤æ–­
 	int plateJudge(const vector<Mat>&, vector<Mat>&);
 
-	//! ³µÅÆÅĞ¶Ï£¨Ò»¸±Í¼Ïñ£©
+	//! è½¦ç‰Œåˆ¤æ–­ï¼ˆä¸€å‰¯å›¾åƒï¼‰
 	int plateJudge(const Mat& inMat, int& result);
 
-	//! Ö±·½Í¼¾ùºâ
+	//! ç›´æ–¹å›¾å‡è¡¡
 	Mat histeq(Mat);
 
-	//! ×°ÔØSVMÄ£ĞÍ
+	//! è£…è½½SVMæ¨¡å‹
 	void LoadModel();
 
-	//! ×°ÔØSVMÄ£ĞÍ
+	//! è£…è½½SVMæ¨¡å‹
 	void LoadModel(string s);
 
-	//! ÉèÖÃÓë¶ÁÈ¡Ä£ĞÍÂ·¾¶
+	//! è®¾ç½®ä¸è¯»å–æ¨¡å‹è·¯å¾„
 	inline void setModelPath(string path){	m_path = path;	}
 	inline string getModelPath() const{	 return m_path;	}
 
 private:
-	//£¡Ê¹ÓÃµÄSVMÄ£ĞÍ
+	//ï¼ä½¿ç”¨çš„SVMæ¨¡å‹
 	CvSVM svm;
 
-	// ! EasyPRµÄgetFeatures»Øµ÷º¯Êı
-	// £¡ÓÃÓÚ´Ó³µÅÆµÄimageÉú³ÉsvmµÄÑµÁ·ÌØÕ÷features
+	// ! EasyPRçš„getFeatureså›è°ƒå‡½æ•°
+	// ï¼ç”¨äºä»è½¦ç‰Œçš„imageç”Ÿæˆsvmçš„è®­ç»ƒç‰¹å¾features
 	svmCallback m_getFeatures;
 
-	//! Ä£ĞÍ´æ´¢Â·¾¶
+	//! æ¨¡å‹å­˜å‚¨è·¯å¾„
 	string m_path;
 };
 

@@ -1,237 +1,239 @@
-obj/local/armeabi-v7a/objs/imageproc/core/plate_recognize.o: \
- jni/src/core/plate_recognize.cpp \
- jni/src/core/../include/plate_recognize.h jni/src/core/../include/prep.h \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/imgproc/imgproc.hpp \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/core.hpp \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/types_c.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/assert.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/sys/cdefs.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/sys/cdefs_elf.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/android/api-level.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/stdlib.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/string.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/malloc.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/alloca.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/strings.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/sys/types.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/stdint.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/sys/_types.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/machine/_types.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/linux/posix_types.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/linux/stddef.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/linux/compiler.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/asm/posix_types.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/asm/types.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/linux/types.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/machine/kernel.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/sys/sysmacros.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/memory.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/math.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/limits.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/sys/limits.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/linux/limits.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/machine/internal_types.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/machine/limits.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/sys/syslimits.h \
- D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/asm/page.h \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/version.hpp \
- D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/algorithm \
- D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/cmath \
- D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/cstddef \
- D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/complex \
- D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/map \
- D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/vector \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/operations.hpp \
- D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/limits \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/mat.hpp \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/imgproc/types_c.h \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/core_c.h \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/highgui/highgui.hpp \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/highgui/highgui_c.h \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv/cvaux.h \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/imgproc/imgproc_c.h \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/video/tracking.hpp \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/video/background_segm.hpp \
- D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/list \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/features2d/features2d.hpp \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/flann/miniflann.hpp \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/flann/defines.h \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/flann/config.h \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/calib3d/calib3d.hpp \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/affine.hpp \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/objdetect/objdetect.hpp \
- D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/deque \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/legacy/legacy.hpp \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/ml/ml.hpp \
- D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/iostream \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/legacy/compat.hpp \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/legacy/blobtrack.hpp \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/contrib/contrib.hpp \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/contrib/retina.hpp \
- D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/valarray \
- D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/contrib/openfabmap.hpp \
- D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/set \
- jni/src/core/../include/plate_detect.h \
- jni/src/core/../include/plate_locate.h \
- jni/src/core/../include/plate_judge.h jni/src/core/../include/features.h \
- jni/src/core/../include/chars_recognise.h \
- jni/src/core/../include/chars_segment.h \
- jni/src/core/../include/chars_identify.h
+/home/eastpiger/workspace/EasyPR_Android/obj/local/armeabi-v7a/objs/imageproc/core/plate_recognize.o: \
+ /home/eastpiger/workspace/EasyPR_Android/jni/src/core/plate_recognize.cpp \
+ /home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/plate_recognize.h \
+ /home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/prep.h \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/imgproc/imgproc.hpp \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/core.hpp \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/types_c.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/assert.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/sys/cdefs.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/sys/cdefs_elf.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/android/api-level.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/stdlib.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/string.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/malloc.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/alloca.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/strings.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/sys/types.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/stdint.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/sys/_types.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/machine/_types.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/linux/posix_types.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/linux/stddef.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/linux/compiler.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/asm/posix_types.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/asm/types.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/linux/types.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/machine/kernel.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/sys/sysmacros.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/memory.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/math.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/limits.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/sys/limits.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/linux/limits.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/machine/internal_types.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/machine/limits.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/sys/syslimits.h \
+ /opt/android-ndk/platforms/android-8/arch-arm/usr/include/asm/page.h \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/version.hpp \
+ /opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/algorithm \
+ /opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/cstddef \
+ /opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/complex \
+ /opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/map \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/operations.hpp \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/mat.hpp \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/imgproc/types_c.h \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/core_c.h \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/highgui/highgui.hpp \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/highgui/highgui_c.h \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/features2d/features2d.hpp \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/flann/miniflann.hpp \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/flann/defines.h \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/flann/config.h \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv/cvaux.h \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/imgproc/imgproc_c.h \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/video/tracking.hpp \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/video/background_segm.hpp \
+ /opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/list \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/calib3d/calib3d.hpp \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/affine.hpp \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/objdetect/objdetect.hpp \
+ /opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/deque \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/legacy/legacy.hpp \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/ml/ml.hpp \
+ /opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/iostream \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/legacy/compat.hpp \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/legacy/blobtrack.hpp \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/contrib/contrib.hpp \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/contrib/retina.hpp \
+ /opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/valarray \
+ /home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/contrib/openfabmap.hpp \
+ /opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/set \
+ /opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/fstream \
+ /home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/plate_detect.h \
+ /home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/plate_locate.h \
+ /home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/plate.h \
+ /home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/core_func.h \
+ /home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/plate_judge.h \
+ /home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/feature.h \
+ /home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/chars_recognise.h \
+ /home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/chars_segment.h \
+ /home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/chars_identify.h
 
-jni/src/core/../include/plate_recognize.h:
+/home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/plate_recognize.h:
 
-jni/src/core/../include/prep.h:
+/home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/prep.h:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/imgproc/imgproc.hpp:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/imgproc/imgproc.hpp:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/core.hpp:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/core.hpp:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/types_c.h:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/types_c.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/assert.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/assert.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/sys/cdefs.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/sys/cdefs.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/sys/cdefs_elf.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/sys/cdefs_elf.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/android/api-level.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/android/api-level.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/stdlib.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/stdlib.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/string.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/string.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/malloc.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/malloc.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/alloca.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/alloca.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/strings.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/strings.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/sys/types.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/sys/types.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/stdint.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/stdint.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/sys/_types.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/sys/_types.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/machine/_types.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/machine/_types.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/linux/posix_types.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/linux/posix_types.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/linux/stddef.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/linux/stddef.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/linux/compiler.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/linux/compiler.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/asm/posix_types.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/asm/posix_types.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/asm/types.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/asm/types.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/linux/types.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/linux/types.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/machine/kernel.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/machine/kernel.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/sys/sysmacros.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/sys/sysmacros.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/memory.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/memory.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/math.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/math.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/limits.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/limits.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/sys/limits.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/sys/limits.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/linux/limits.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/linux/limits.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/machine/internal_types.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/machine/internal_types.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/machine/limits.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/machine/limits.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/sys/syslimits.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/sys/syslimits.h:
 
-D:/android-ndk-r10d/platforms/android-8/arch-arm/usr/include/asm/page.h:
+/opt/android-ndk/platforms/android-8/arch-arm/usr/include/asm/page.h:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/version.hpp:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/version.hpp:
 
-D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/algorithm:
+/opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/algorithm:
 
-D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/cmath:
+/opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/cstddef:
 
-D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/cstddef:
+/opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/complex:
 
-D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/complex:
+/opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/map:
 
-D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/map:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/operations.hpp:
 
-D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/vector:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/mat.hpp:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/operations.hpp:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/imgproc/types_c.h:
 
-D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/limits:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/core_c.h:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/mat.hpp:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/highgui/highgui.hpp:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/imgproc/types_c.h:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/highgui/highgui_c.h:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/core_c.h:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/features2d/features2d.hpp:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/highgui/highgui.hpp:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/flann/miniflann.hpp:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/highgui/highgui_c.h:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/flann/defines.h:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv/cvaux.h:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/flann/config.h:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/imgproc/imgproc_c.h:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv/cvaux.h:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/video/tracking.hpp:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/imgproc/imgproc_c.h:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/video/background_segm.hpp:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/video/tracking.hpp:
 
-D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/list:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/video/background_segm.hpp:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/features2d/features2d.hpp:
+/opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/list:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/flann/miniflann.hpp:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/calib3d/calib3d.hpp:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/flann/defines.h:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/affine.hpp:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/flann/config.h:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/objdetect/objdetect.hpp:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/calib3d/calib3d.hpp:
+/opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/deque:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/core/affine.hpp:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/legacy/legacy.hpp:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/objdetect/objdetect.hpp:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/ml/ml.hpp:
 
-D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/deque:
+/opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/iostream:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/legacy/legacy.hpp:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/legacy/compat.hpp:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/ml/ml.hpp:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/legacy/blobtrack.hpp:
 
-D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/iostream:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/contrib/contrib.hpp:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/legacy/compat.hpp:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/contrib/retina.hpp:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/legacy/blobtrack.hpp:
+/opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/valarray:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/contrib/contrib.hpp:
+/home/eastpiger/Archive/Code/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/contrib/openfabmap.hpp:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/contrib/retina.hpp:
+/opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/set:
 
-D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/valarray:
+/opt/android-ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/fstream:
 
-D:/OpenCV-2.4.10-android-sdk/OpenCV-2.4.10-android-sdk/sdk/native/jni/include/opencv2/contrib/openfabmap.hpp:
+/home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/plate_detect.h:
 
-D:/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/set:
+/home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/plate_locate.h:
 
-jni/src/core/../include/plate_detect.h:
+/home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/plate.h:
 
-jni/src/core/../include/plate_locate.h:
+/home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/core_func.h:
 
-jni/src/core/../include/plate_judge.h:
+/home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/plate_judge.h:
 
-jni/src/core/../include/features.h:
+/home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/feature.h:
 
-jni/src/core/../include/chars_recognise.h:
+/home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/chars_recognise.h:
 
-jni/src/core/../include/chars_segment.h:
+/home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/chars_segment.h:
 
-jni/src/core/../include/chars_identify.h:
+/home/eastpiger/workspace/EasyPR_Android/jni/src/core/../include/chars_identify.h:
